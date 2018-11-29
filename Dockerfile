@@ -23,4 +23,4 @@ COPY --from=build-stage /function/libtensorflow_jni.so /function/runtime/lib
 COPY --from=build-stage /function/libtensorflow_framework.so /function/runtime/lib
 COPY --from=build-stage /function/libtensorflow-$TENSORFLOW_VERSION.jar /function/app/
 COPY --from=build-stage /function/target/*.jar /function/app/
-CMD ["com.example.fn.LabelImageFunction::label"]
+CMD ["com.example.fn.LabelImageFunction::classify"]
