@@ -1,0 +1,12 @@
+schema_version: 20180708
+name: classify
+version: 0.0.1
+runtime: java
+cmd: com.example.fn.LabelImageFunction::classify
+format: http-stream
+memory: 1024
+timeout: 120
+triggers:
+- name: classify
+  type: http
+  source: /classify
