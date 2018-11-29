@@ -10,7 +10,6 @@ RUN echo "using tensorflow version " $TENSORFLOW_VERSION
 RUN curl -LJO https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-$TENSORFLOW_VERSION.jar
 RUN curl -LJO https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow_jni-cpu-linux-x86_64-$TENSORFLOW_VERSION.tar.gz
 RUN tar -xvzf libtensorflow_jni-cpu-linux-x86_64-$TENSORFLOW_VERSION.tar.gz
-#RUN ls -lrt
 
 
 ADD src /function/src
