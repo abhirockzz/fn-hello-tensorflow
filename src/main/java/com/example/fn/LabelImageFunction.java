@@ -28,7 +28,7 @@ public class LabelImageFunction {
             return result;
         }
 
-        System.err.println("Loaded labels....");
+        System.err.println("Loaded labels");
 
         Session session = null;
         Graph graph = null;
@@ -37,22 +37,21 @@ public class LabelImageFunction {
             session = new Session(graph);
             graph.importGraphDef(loadGraphDef());
 
-            System.err.println("Loaded graph definition....");
+            System.err.println("Loaded graph definition");
 
             float[] probabilities = null;
-            byte[] bytes = null;
             try {
                 //bytes = ByteStreams.toByteArray(LabelImageFunction.class.getClassLoader().getResourceAsStream(filename));
-                bytes = ByteStreams.toByteArray(new ByteArrayInputStream(image));
+                //bytes = ByteStreams.toByteArray(new ByteArrayInputStream(image));
             } catch (Throwable ex) {
                 String err = "Failed to read file - " + ex.getMessage();
                 System.err.println(err);
                 result = err;
                 return result;
             }
-            System.err.println("loaded image....");
+            System.err.println("Loaded image");
 
-            try (Tensor<String> input = Tensors.create(bytes);
+            try (Tensor<String> input = Tensors.create(image);
                     Tensor<Float> output
                     = session
                             .runner()
@@ -76,12 +75,6 @@ public class LabelImageFunction {
             System.err.println(ex);
             result = "Error - " + ex.getMessage();
         }
-        /*finally {
-            if (graph != null)  {
-                graph.close();
-                System.err.println("closed graph...");
-            }
-        }*/
         return result;
     }
 
