@@ -4,7 +4,3 @@ version: 0.0.1
 runtime: java
 memory: 1024
 timeout: 120
-triggers:
-- name: classify
-  type: http
-  source: /classify
